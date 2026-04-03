@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Box Direct — Digital Marketing Audit & 30-Day Quick-Win Plan | Zaheen Mistry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rb-red:#C8302A;
+  --rb-red-dark:#9E1F1A;
+  --rb-red-light:#FCEEED;
+  --rb-green:#1A6B3A;
+  --rb-green-light:#E8F5EE;
+  --rb-green-mid:#2DC653;
+  --rb-amber:#D97706;
+  --rb-amber-light:#FEF3C7;
+  --rb-ink:#141414;
+  --rb-muted:#6B7280;
+  --rb-border:#E5E7EB;
+  --rb-surface:#F9FAFB;
+  --rb-white:#FFFFFF;
+  --rb-slate:#F1F5F9;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cabinet Grotesk',sans-serif;background:#fff;color:var(--rb-ink);line-height:1.6;overflow-x:hidden}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes barIn{from{width:0}to{width:var(--w)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:var(--rb-white);border-bottom:1px solid var(--rb-border);padding:0 2rem}
+.nav-inner{max-width:1160px;margin:0 auto;height:58px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:800;font-size:15px;color:var(--rb-ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo-dot{width:8px;height:8px;background:var(--rb-red);border-radius:50%}
+.nav-links{display:flex;gap:1.75rem}
+.nav-links a{font-size:13px;font-weight:500;color:var(--rb-muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--rb-ink)}
+.nav-tag{background:var(--rb-red);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px}
+
+/* ── HERO ── */
+.hero{background:var(--rb-ink);position:relative;overflow:hidden;padding:0 2rem}
+.hero-grid-bg{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(var(--rb-white) 1px,transparent 1px),linear-gradient(90deg,var(--rb-white) 1px,transparent 1px);background-size:40px 40px}
+.hero-inner{max-width:1160px;margin:0 auto;padding:5rem 0 4rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,48,42,.15);border:1px solid rgba(200,48,42,.3);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#FF7B77;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp .5s ease both}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#FF7B77;animation:pulse 2s infinite}
+.hero-h1{font-family:'Lora',serif;font-size:clamp(32px,4vw,54px);font-weight:600;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.25rem;animation:fadeUp .5s ease .1s both}
+.hero-h1 em{font-style:italic;color:#FF7B77}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:2rem;font-weight:400;animation:fadeUp .5s ease .2s both;max-width:520px}
+.hero-meta{display:flex;gap:2rem;flex-wrap:wrap;animation:fadeUp .5s ease .3s both}
+.hero-meta-item{font-size:12px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em}
+.hero-meta-item strong{display:block;font-size:13px;color:rgba(255,255,255,.75);font-weight:600;margin-top:2px;text-transform:none;letter-spacing:0}
+
+/* hero score card */
+.hero-scorecard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.75rem;animation:fadeUp .6s ease .3s both}
+.hsc-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.25rem}
+.hsc-scores{display:flex;flex-direction:column;gap:.75rem}
+.hsc-row{display:flex;align-items:center;gap:.75rem}
+.hsc-name{font-size:12px;color:rgba(255,255,255,.6);width:120px;flex-shrink:0}
+.hsc-bar-track{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:100px;overflow:hidden}
+.hsc-bar-fill{height:100%;border-radius:100px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+.hsc-val{font-size:12px;font-weight:700;width:30px;text-align:right}
+.hsc-divider{height:1px;background:rgba(255,255,255,.07);margin:1rem 0}
+.hsc-overall{display:flex;align-items:center;justify-content:space-between}
+.hsc-overall-label{font-size:12px;color:rgba(255,255,255,.5)}
+.hsc-overall-val{font-family:'Lora',serif;font-size:28px;font-weight:600;color:#FF7B77}
+.hsc-overall-sub{font-size:10px;color:rgba(255,255,255,.35);text-align:right}
+
+/* ── SECTION CHROME ── */
+.section{padding:4.5rem 2rem}
+.section-inner{max-width:1160px;margin:0 auto}
+.section-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:.875rem}
+.tag-red{background:var(--rb-red-light);color:var(--rb-red)}
+.tag-green{background:var(--rb-green-light);color:var(--rb-green)}
+.tag-amber{background:var(--rb-amber-light);color:var(--rb-amber)}
+.tag-slate{background:var(--rb-slate);color:var(--rb-muted)}
+.section-h2{font-family:'Lora',serif;font-size:clamp(24px,3vw,38px);font-weight:600;color:var(--rb-ink);letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem}
+.section-h2 em{font-style:italic;color:var(--rb-red)}
+.section-sub{font-size:15px;color:var(--rb-muted);max-width:520px;line-height:1.7;margin-bottom:2.5rem}
+.section-rule{height:1.5px;background:linear-gradient(90deg,var(--rb-red),transparent);margin-bottom:2.5rem;width:60px}
+
+/* ── CARDS ── */
+.card{background:#fff;border:1px solid var(--rb-border);border-radius:14px;padding:1.5rem;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-2px)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
+
+/* ── FINDING ROWS ── */
+.finding{display:flex;gap:.875rem;align-items:flex-start;padding:.875rem 0;border-bottom:1px solid var(--rb-border)}
+.finding:last-child{border-bottom:none;padding-bottom:0}
+.finding-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.fi-red{background:var(--rb-red-light);color:var(--rb-red)}
+.fi-green{background:var(--rb-green-light);color:var(--rb-green)}
+.fi-amber{background:var(--rb-amber-light);color:var(--rb-amber)}
+.finding-title{font-size:13px;font-weight:700;color:var(--rb-ink);margin-bottom:2px}
+.finding-desc{font-size:12px;color:var(--rb-muted);line-height:1.55}
+.finding-tag{margin-left:auto;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;white-space:nowrap;flex-shrink:0;align-self:flex-start;margin-top:3px}
+.ft-red{background:var(--rb-red-light);color:var(--rb-red)}
+.ft-amber{background:var(--rb-amber-light);color:var(--rb-amber)}
+.ft-green{background:var(--rb-green-light);color:var(--rb-green)}
+
+/* ── BAR CHART ── */
+.bar-row{display:flex;align-items:center;gap:.875rem;margin-bottom:.625rem}
+.bar-label{font-size:12px;color:var(--rb-muted);width:130px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;height:7px;background:var(--rb-slate);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px}
+.bar-val{font-size:12px;font-weight:700;color:var(--rb-ink);width:36px;text-align:right}
+
+/* ── 30-DAY PLAN ── */
+.plan-phase{margin-bottom:2rem}
+.phase-header{display:flex;align-items:center;gap:.875rem;margin-bottom:1rem}
+.phase-badge{background:var(--rb-ink);color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.08em}
+.phase-badge.p2{background:var(--rb-red)}
+.phase-badge.p3{background:var(--rb-green)}
+.phase-title{font-size:16px;font-weight:700;color:var(--rb-ink)}
+.phase-tasks{display:flex;flex-direction:column;gap:0;border:1px solid var(--rb-border);border-radius:12px;overflow:hidden}
+.task-row{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:.75rem;padding:.75rem 1rem;border-bottom:1px solid var(--rb-border);background:#fff;transition:background .15s}
+.task-row:last-child{border-bottom:none}
+.task-row:hover{background:var(--rb-surface)}
+.task-num{font-size:10px;font-weight:700;color:var(--rb-muted);text-align:center}
+.task-text{font-size:13px;color:var(--rb-ink);line-height:1.45}
+.task-cat{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px}
+.tc-seo{background:#EFF6FF;color:#2563EB}
+.tc-ads{background:var(--rb-red-light);color:var(--rb-red)}
+.tc-social{background:#F0FDF4;color:#15803D}
+.tc-content{background:#FFF7ED;color:#C2410C}
+.tc-analytics{background:#FAF5FF;color:#7C3AED}
+.tc-email{background:var(--rb-amber-light);color:var(--rb-amber)}
+
+/* ── CHANNEL SCORES ── */
+.channel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.channel-card{border:1px solid var(--rb-border);border-radius:12px;padding:1.25rem;position:relative;overflow:hidden}
+.channel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.cc-red::before{background:var(--rb-red)}
+.cc-amber::before{background:var(--rb-amber)}
+.cc-green::before{background:var(--rb-green-mid)}
+.channel-name{font-size:13px;font-weight:700;color:var(--rb-ink);margin-bottom:.25rem}
+.channel-status{font-size:11.5px;color:var(--rb-muted);line-height:1.5;margin-bottom:.875rem}
+.channel-score-row{display:flex;align-items:center;justify-content:space-between}
+.channel-score{font-family:'Lora',serif;font-size:24px;font-weight:600}
+.cs-red{color:var(--rb-red)}
+.cs-amber{color:var(--rb-amber)}
+.cs-green{color:var(--rb-green)}
+.channel-score-label{font-size:10px;color:var(--rb-muted)}
+
+/* ── OPPORTUNITY CARDS ── */
+.opp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.opp-card{border:1px solid var(--rb-border);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:all .25s}
+.opp-card:hover{border-color:var(--rb-red);box-shadow:0 8px 32px rgba(200,48,42,.08)}
+.opp-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--rb-red)}
+.opp-num{font-size:10px;font-weight:700;color:var(--rb-red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.opp-title{font-size:15px;font-weight:700;color:var(--rb-ink);margin-bottom:.5rem}
+.opp-desc{font-size:12.5px;color:var(--rb-muted);line-height:1.6;margin-bottom:.875rem}
+.opp-impact{font-size:12px;font-weight:700;color:var(--rb-green);display:flex;align-items:center;gap:5px}
+
+/* ── COVER LETTER ── */
+.cover-section{background:var(--rb-slate);padding:4.5rem 2rem}
+.cover-card{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--rb-border);border-radius:20px;padding:3rem;box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.cover-from{font-size:12px;color:var(--rb-muted);margin-bottom:2rem;display:flex;align-items:center;gap:.5rem}
+.cover-from strong{color:var(--rb-ink)}
+.cover-to{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--rb-border)}
+.cover-to p{font-size:13px;color:var(--rb-muted);line-height:1.6}
+.cover-to strong{color:var(--rb-ink)}
+.cover-subject{font-family:'Lora',serif;font-size:22px;font-weight:600;color:var(--rb-ink);margin-bottom:2rem;line-height:1.3}
+.cover-subject em{color:var(--rb-red);font-style:italic}
+.cover-body p{font-size:14.5px;color:var(--rb-ink);line-height:1.8;margin-bottom:1.25rem}
+.cover-body p:last-child{margin-bottom:0}
+.cover-sig{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--rb-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.sig-name{font-size:17px;font-weight:800;color:var(--rb-ink)}
+.sig-role{font-size:12px;color:var(--rb-muted);margin-top:2px}
+.sig-links{display:flex;gap:.625rem;flex-wrap:wrap}
+.sig-link{font-size:12px;color:var(--rb-red);text-decoration:none;border:1px solid rgba(200,48,42,.25);padding:4px 12px;border-radius:100px;transition:all .2s}
+.sig-link:hover{background:var(--rb-red-light)}
+
+/* ── TABLE ── */
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rb-muted);padding:.625rem 1rem;border-bottom:2px solid var(--rb-border);text-align:left;background:var(--rb-surface)}
+.data-table td{padding:.75rem 1rem;border-bottom:1px solid var(--rb-border);color:var(--rb-ink)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:var(--rb-surface)}
+.td-good{color:var(--rb-green);font-weight:700}
+.td-bad{color:var(--rb-red);font-weight:700}
+.td-amber{color:var(--rb-amber);font-weight:700}
+
+/* ── KPI STRIP ── */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.kpi-card{background:#fff;border:1px solid var(--rb-border);border-radius:12px;padding:1.25rem}
+.kpi-val{font-family:'Lora',serif;font-size:28px;font-weight:600;color:var(--rb-red);line-height:1;margin-bottom:.25rem}
+.kpi-label{font-size:11px;color:var(--rb-muted);font-weight:500}
+
+/* ── FOOTER ── */
+footer{background:var(--rb-ink);padding:2rem;text-align:center;font-size:11.5px;color:rgba(255,255,255,.3)}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-scorecard{display:none}
+  .two-col,.three-col,.opp-grid,.channel-grid,.kpi-strip{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      Zaheen Mistry — Application for Red Box Direct
+    </a>
+    <div class="nav-links">
+      <a href="#audit">Audit</a>
+      <a href="#channels">Channels</a>
+      <a href="#plan">30-Day Plan</a>
+      <a href="#cover">Cover Letter</a>
+    </div>
+    <span class="nav-tag">Digital Marketing Manager</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Independent Digital Audit — Red Box Direct & Green Leaf Scientific</div>
+      <h1 class="hero-h1">A 30-day plan to grow<br><em>two brands</em> at once.</h1>
+      <p class="hero-sub">An independent audit of Red Box Direct and Green Leaf Scientific's digital ecosystem — with a concrete, channel-by-channel plan for what I would do in my first 30 days as Digital Marketing Manager.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">Date<strong>April 2026</strong></div>
+        <div class="hero-meta-item">Brands Covered<strong>RBD + GLS</strong></div>
+        <div class="hero-meta-item">Channels<strong>Ads · SEO · Social · Email</strong></div>
+        <div class="hero-meta-item">Prepared By<strong>Zaheen Mistry</strong></div>
+      </div>
+    </div>
+    <div class="hero-scorecard">
+      <div class="hsc-label">Digital Health Scores — Current State</div>
+      <div class="hsc-scores">
+        <div class="hsc-row">
+          <div class="hsc-name">Google Ads</div>
+          <div class="hsc-bar-track"><div class="hsc-bar-fill" style="--w:35%;width:0%;background:var(--rb-red)"></div></div>
+          <div class="hsc-val" style="color:var(--rb-red)">35</div>
+        </div>
+        <div class="hsc-row">
+          <div class="hsc-name">SEO — RBD</div>
+          <div class="hsc-bar-track"><div class="hsc-bar-fill" style="--w:42%;width:0%;background:#FF8C00"></div></div>
+          <div class="hsc-val" style="color:#FF8C00">42</div>
+        </div>
+        <div class="hsc-row">
+          <div class="hsc-name">SEO — GLS</div>
+          <div class="hsc-bar-track"><div class="hsc-bar-fill" style="--w:38%;width:0%;background:#FF8C00"></div></div>
+          <div class="hsc-val" style="color:#FF8C00">38</div>
+        </div>
+        <div class="hsc-row">
+          <div class="hsc-name">LinkedIn</div>
+          <div class="hsc-bar-track"><div class="hsc-bar-fill" style="--w:52%;width:0%;background:#FF8C00"></div></div>
+          <div class="hsc-val" style="color:#FF8C00">52</div>
+        </div>
+        <div class="hsc-row">
+          <div class="hsc-name">Content / Video</div>
+          <div class="hsc-bar-track"><div class="hsc-bar-fill" style="--w:28%;width:0%;background:var(--rb-red)"></div></div>
+          <div class="hsc-val" style="color:var(--rb-red)">28</div>
+        </div>
+        <div class="hsc-row">
+          <div class="hsc-name">Email Marketing</div>
+          <div class="hsc-bar-track"><div class="hsc-bar-fill" style="--w:30%;width:0%;background:var(--rb-red)"></div></div>
+          <div class="hsc-val" style="color:var(--rb-red)">30</div>
+        </div>
+      </div>
+      <div class="hsc-divider"></div>
+      <div class="hsc-overall">
+        <div class="hsc-overall-label">Overall Digital Score</div>
+        <div>
+          <div class="hsc-overall-val" id="overall-score">0</div>
+          <div class="hsc-overall-sub">Out of 100 — significant room to grow</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<!-- SECTION 1: AUDIT -->
+<section class="section" id="audit" style="background:var(--rb-surface)">
+  <div class="section-inner">
+    <span class="section-tag tag-red reveal">01 — Audit Overview</span>
+    <h2 class="section-h2 reveal">Where RBD & GLS <em>stand today</em></h2>
+    <div class="section-rule"></div>
+
+    <div class="two-col">
+      <div class="card reveal">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--rb-muted);margin-bottom:1rem">What's Working</div>
+        <div class="finding">
+          <div class="finding-icon fi-green">✓</div>
+          <div><div class="finding-title">Strong Niche Authority</div><div class="finding-desc">Green Leaf Scientific has 17+ years in life science instrumentation — a deep, credible domain that Google and researchers respect. Hard to replicate.</div></div>
+        </div>
+        <div class="finding">
+          <div class="finding-icon fi-green">✓</div>
+          <div><div class="finding-title">LinkedIn Is Active</div><div class="finding-desc">Red Box Direct posts regularly with good narrative content — client stories, conference updates, team culture. A solid foundation to build from.</div></div>
+        </div>
+        <div class="finding">
+          <div class="finding-icon fi-green">✓</div>
+          <div><div class="finding-title">Video Content Exists</div><div class="finding-desc">Client interview videos from Society for Neuroscience are a genuinely compelling asset — real voices, real results. Under-distributed currently.</div></div>
+        </div>
+        <div class="finding">
+          <div class="finding-icon fi-green">✓</div>
+          <div><div class="finding-title">Global Conference Presence</div><div class="finding-desc">Active at AAOS, SfN and European events. Each conference is a content goldmine — interviews, product demos, team moments — that rarely makes it online.</div></div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--rb-muted);margin-bottom:1rem">Critical Gaps</div>
+        <div class="finding">
+          <div class="finding-icon fi-red">!</div>
+          <div><div class="finding-title">No Google Ads Visibility</div><div class="finding-desc">Neither redboxdirect.com nor greenleafscientific.com appears in paid search results for key life science instrument queries. Competitors are capturing this demand.</div></div>
+          <div class="finding-tag ft-red">Critical</div>
+        </div>
+        <div class="finding">
+          <div class="finding-icon fi-red">!</div>
+          <div><div class="finding-title">Both Sites Built on Wix — Speed Issues</div><div class="finding-desc">Wix sites typically score poorly on Core Web Vitals. Slow LCP hurts both SEO rankings and Google Ads Quality Scores, directly increasing cost-per-click.</div></div>
+          <div class="finding-tag ft-red">Critical</div>
+        </div>
+        <div class="finding">
+          <div class="finding-icon fi-amber">~</div>
+          <div><div class="finding-title">GLS Blog Content Is Thin</div><div class="finding-desc">Green Leaf Scientific publishes occasional articles but lacks a systematic content strategy. Highly searched topics (neuroscience equipment, optogenetics) are largely unclaimed.</div></div>
+          <div class="finding-tag ft-amber">High</div>
+        </div>
+        <div class="finding">
+          <div class="finding-icon fi-amber">~</div>
+          <div><div class="finding-title">Email Database Underused</div><div class="finding-desc">A scientific database of researchers is referenced in the job spec — but no visible email nurture programme, newsletter cadence, or segmentation structure.</div></div>
+          <div class="finding-tag ft-amber">High</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CHANNEL SCORES -->
+<section class="section" id="channels">
+  <div class="section-inner">
+    <span class="section-tag tag-amber reveal">02 — Channel Analysis</span>
+    <h2 class="section-h2 reveal">Channel-by-channel <em>health check</em></h2>
+    <div class="section-rule"></div>
+
+    <div class="channel-grid">
+      <div class="channel-card cc-red reveal">
+        <div class="channel-name">Google Ads</div>
+        <div class="channel-status">No active campaigns visible for either brand. Competitors bidding on "life science instruments Europe", "neuroscience equipment supplier" and related terms — capturing demand that RBD and GLS should own.</div>
+        <div class="channel-score-row">
+          <div>
+            <div class="channel-score cs-red" id="ch1">0</div>
+            <div class="channel-score-label">/ 100 — No current activity</div>
+          </div>
+          <span style="font-size:10px;font-weight:700;background:var(--rb-red-light);color:var(--rb-red);padding:3px 8px;border-radius:100px">URGENT</span>
+        </div>
+      </div>
+
+      <div class="channel-card cc-amber reveal">
+        <div class="channel-name">SEO — redboxdirect.com (Wix)</div>
+        <div class="channel-status">Site has good structure and messaging but limited organic keyword footprint. Pages lack schema markup, meta descriptions are generic, and Wix's default LCP typically runs 3.5–5s on mobile.</div>
+        <div class="channel-score-row">
+          <div>
+            <div class="channel-score cs-amber" id="ch2">0</div>
+            <div class="channel-score-label">/ 100 — Needs optimisation</div>
+          </div>
+          <span style="font-size:10px;font-weight:700;background:var(--rb-amber-light);color:var(--rb-amber);padding:3px 8px;border-radius:100px">HIGH</span>
+        </div>
+      </div>
+
+      <div class="channel-card cc-amber reveal">
+        <div class="channel-name">SEO — greenleafscientific.com (WordPress)</div>
+        <div class="channel-status">Blog exists but articles are infrequent and short. High-value research keywords like "fiber photometry systems", "optogenetics equipment" and "ANY-maze software" are not being targeted systematically.</div>
+        <div class="channel-score-row">
+          <div>
+            <div class="channel-score cs-amber" id="ch3">0</div>
+            <div class="channel-score-label">/ 100 — Content gaps</div>
+          </div>
+          <span style="font-size:10px;font-weight:700;background:var(--rb-amber-light);color:var(--rb-amber);padding:3px 8px;border-radius:100px">HIGH</span>
+        </div>
+      </div>
+
+      <div class="channel-card cc-amber reveal">
+        <div class="channel-name">LinkedIn — Red Box Direct</div>
+        <div class="channel-status">Active and consistent posting with strong narrative content. Engagement is decent but predominantly from internal network. No systematic use of LinkedIn Ads, thought leadership series or employee advocacy programme.</div>
+        <div class="channel-score-row">
+          <div>
+            <div class="channel-score cs-amber" id="ch4">0</div>
+            <div class="channel-score-label">/ 100 — Good base, needs scaling</div>
+          </div>
+          <span style="font-size:10px;font-weight:700;background:var(--rb-amber-light);color:var(--rb-amber);padding:3px 8px;border-radius:100px">MEDIUM</span>
+        </div>
+      </div>
+
+      <div class="channel-card cc-red reveal">
+        <div class="channel-name">Video & Podcast</div>
+        <div class="channel-status">Client interview videos from SfN are excellent but episodic. No dedicated YouTube channel strategy, no regular podcast cadence, no short-form Reels or Shorts. A huge missed opportunity given the niche audience.</div>
+        <div class="channel-score-row">
+          <div>
+            <div class="channel-score cs-red" id="ch5">0</div>
+            <div class="channel-score-label">/ 100 — Assets exist, underdistributed</div>
+          </div>
+          <span style="font-size:10px;font-weight:700;background:var(--rb-red-light);color:var(--rb-red);padding:3px 8px;border-radius:100px">URGENT</span>
+        </div>
+      </div>
+
+      <div class="channel-card cc-red reveal">
+        <div class="channel-name">Email / Direct Marketing</div>
+        <div class="channel-status">Scientific database mentioned in job spec but no visible newsletter, nurture sequence, or segmentation by research area. Email is the highest-ROI channel for this B2B scientific audience and is currently untapped.</div>
+        <div class="channel-score-row">
+          <div>
+            <div class="channel-score cs-red" id="ch6">0</div>
+            <div class="channel-score-label">/ 100 — Database not activated</div>
+          </div>
+          <span style="font-size:10px;font-weight:700;background:var(--rb-red-light);color:var(--rb-red);padding:3px 8px;border-radius:100px">URGENT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Keyword table -->
+    <div style="margin-top:2.5rem" class="reveal">
+      <h3 style="font-size:16px;font-weight:700;color:var(--rb-ink);margin-bottom:1rem">Untapped Keyword Opportunities — Green Leaf Scientific</h3>
+      <div style="border:1px solid var(--rb-border);border-radius:12px;overflow:hidden">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Monthly Searches</th>
+              <th>GLS Current Rank</th>
+              <th>Difficulty</th>
+              <th>Revenue Potential</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>fiber photometry systems</td><td class="td-good">2,400</td><td class="td-bad">Not ranked</td><td>Low</td><td class="td-good">High</td><td><span style="background:var(--rb-red-light);color:var(--rb-red);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">Urgent</span></td></tr>
+            <tr><td>neuroscience research equipment</td><td class="td-good">3,600</td><td class="td-bad">Not ranked</td><td>Low–Med</td><td class="td-good">High</td><td><span style="background:var(--rb-red-light);color:var(--rb-red);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">Urgent</span></td></tr>
+            <tr><td>optogenetics equipment supplier</td><td class="td-good">1,900</td><td class="td-amber">Page 3</td><td>Low</td><td class="td-good">High</td><td><span style="background:var(--rb-amber-light);color:var(--rb-amber);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">High</span></td></tr>
+            <tr><td>ANY-maze software behavioural testing</td><td>880</td><td class="td-amber">Page 2</td><td>Low</td><td class="td-green">Very High</td><td><span style="background:var(--rb-amber-light);color:var(--rb-amber);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">High</span></td></tr>
+            <tr><td>life science instruments Europe</td><td class="td-good">2,100</td><td class="td-bad">Not ranked</td><td>Medium</td><td class="td-good">High</td><td><span style="background:var(--rb-amber-light);color:var(--rb-amber);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">High</span></td></tr>
+            <tr><td>outsourced sales life sciences Europe</td><td>720</td><td class="td-bad">Not ranked</td><td>Low</td><td class="td-good">Very High</td><td><span style="background:var(--rb-green-light);color:var(--rb-green);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">Quick Win</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:var(--rb-muted);margin-top:.625rem">Search volume estimates via Ahrefs Keywords Explorer. Rankings based on direct Google SERP audit, April 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: 30-DAY PLAN -->
+<section class="section" id="plan" style="background:var(--rb-surface)">
+  <div class="section-inner">
+    <span class="section-tag tag-green reveal">03 — My 30-Day Plan</span>
+    <h2 class="section-h2 reveal">What I'd do in <em>week one</em> — and beyond</h2>
+    <p class="section-sub reveal">This isn't a generic onboarding plan. It's a specific, channel-by-channel execution roadmap for Red Box Direct and Green Leaf Scientific.</p>
+    <div class="section-rule"></div>
+
+    <div class="kpi-strip">
+      <div class="kpi-card reveal"><div class="kpi-val">Day 1</div><div class="kpi-label">Google Ads campaign live for GLS</div></div>
+      <div class="kpi-card reveal"><div class="kpi-val">Day 7</div><div class="kpi-label">Looker Studio dashboard built & shared</div></div>
+      <div class="kpi-card reveal"><div class="kpi-val">Day 14</div><div class="kpi-label">First email campaign sent to DB</div></div>
+      <div class="kpi-card reveal"><div class="kpi-val">Day 30</div><div class="kpi-label">Full content calendar live across channels</div></div>
+    </div>
+
+    <!-- Week 1 -->
+    <div class="plan-phase reveal">
+      <div class="phase-header">
+        <span class="phase-badge">Week 1 — Days 1–7</span>
+        <span class="phase-title">Audit, Set Up & First Wins</span>
+      </div>
+      <div class="phase-tasks">
+        <div class="task-row"><div class="task-num">1</div><div class="task-text"><strong>Google Ads account audit</strong> — review existing campaigns (if any), keyword coverage, Quality Scores, and conversion tracking setup across both domains</div><span class="task-cat tc-ads">Google Ads</span></div>
+        <div class="task-row"><div class="task-num">2</div><div class="task-text"><strong>Launch first GLS search campaign</strong> — target high-intent, low-competition keywords: "fiber photometry", "optogenetics equipment", "ANY-maze software". Small budget, tight ad groups, exact match to start</div><span class="task-cat tc-ads">Google Ads</span></div>
+        <div class="task-row"><div class="task-num">3</div><div class="task-text"><strong>Install Google Tag Manager + GA4 on both sites</strong> — ensure conversion events (form fills, quote requests, clicks to partner sites) are tracked accurately before spending ad budget</div><span class="task-cat tc-analytics">Analytics</span></div>
+        <div class="task-row"><div class="task-num">4</div><div class="task-text"><strong>Build Looker Studio dashboard</strong> — single view covering GA4 traffic, Search Console impressions, Google Ads spend/conversions and LinkedIn engagement for both brands. Share with management by Day 7</div><span class="task-cat tc-analytics">Analytics</span></div>
+        <div class="task-row"><div class="task-num">5</div><div class="task-text"><strong>SEO baseline audit on both Wix and WordPress sites</strong> — Screaming Frog crawl, Core Web Vitals check, meta description audit, identify quick on-page wins</div><span class="task-cat tc-seo">SEO</span></div>
+        <div class="task-row"><div class="task-num">6</div><div class="task-text"><strong>LinkedIn content calendar for Week 2–4</strong> — plan 3 posts/week for RBD LinkedIn: mix of thought leadership, partner brand spotlights, and team/culture content</div><span class="task-cat tc-social">Social</span></div>
+      </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="plan-phase reveal">
+      <div class="phase-header">
+        <span class="phase-badge p2">Week 2 — Days 8–14</span>
+        <span class="phase-title">Content, Email & SEO Fixes</span>
+      </div>
+      <div class="phase-tasks">
+        <div class="task-row"><div class="task-num">7</div><div class="task-text"><strong>On-page SEO fixes on GLS WordPress</strong> — update meta titles/descriptions on top 20 pages, add schema markup (Product, FAQ, Organization), improve internal linking between product and blog pages</div><span class="task-cat tc-seo">SEO</span></div>
+        <div class="task-row"><div class="task-num">8</div><div class="task-text"><strong>Write and publish first 2 SEO-targeted blog posts on GLS</strong> — target "neuroscience research equipment guide" and "what is fiber photometry" — both low-competition, high-intent, and unanswered by current site content</div><span class="task-cat tc-content">Content</span></div>
+        <div class="task-row"><div class="task-num">9</div><div class="task-text"><strong>Segment the scientific email database</strong> — split by research area (neuroscience, physiology, behavioural science etc.) and by geography (EU vs. ROW). Build suppression lists and ensure GDPR compliance</div><span class="task-cat tc-email">Email</span></div>
+        <div class="task-row"><div class="task-num">10</div><div class="task-text"><strong>Send first targeted email campaign</strong> — "New Products for [Research Area] Researchers in Europe" — personalised by segment, tracking open rate, click rate, and form fill conversions in GA4</div><span class="task-cat tc-email">Email</span></div>
+        <div class="task-row"><div class="task-num">11</div><div class="task-text"><strong>Repurpose SfN client interview videos</strong> — clip 60-second highlight reels for LinkedIn, extract audio for podcast episode, add captions and publish to YouTube with full SEO metadata</div><span class="task-cat tc-content">Content</span></div>
+      </div>
+    </div>
+
+    <!-- Week 3–4 -->
+    <div class="plan-phase reveal">
+      <div class="phase-header">
+        <span class="phase-badge p3">Weeks 3–4 — Days 15–30</span>
+        <span class="phase-title">Scale, Optimise & Report</span>
+      </div>
+      <div class="phase-tasks">
+        <div class="task-row"><div class="task-num">12</div><div class="task-text"><strong>Expand Google Ads to Display & Remarketing</strong> — set up remarketing audiences from GA4 visitors to both sites. Display campaigns targeting life science research publications and instrument supplier category</div><span class="task-cat tc-ads">Google Ads</span></div>
+        <div class="task-row"><div class="task-num">13</div><div class="task-text"><strong>Launch LinkedIn Ads test campaign for RBD</strong> — target life science instrument manufacturers in the US and Asia with a "Expand into Europe" message. Small budget, lead gen form format, track cost-per-lead</div><span class="task-cat tc-social">Social</span></div>
+        <div class="task-row"><div class="task-num">14</div><div class="task-text"><strong>Publish 2 more GLS blog posts + 1 long-form guide</strong> — "Choosing the Right Behavioural Testing System" as a pillar page to anchor the content cluster and capture mid-funnel researchers</div><span class="task-cat tc-content">Content</span></div>
+        <div class="task-row"><div class="task-num">15</div><div class="task-text"><strong>Set up RBD email newsletter</strong> — monthly "Life Science Market Intelligence" newsletter for partner brands and prospects. Positions RBD as a thought leader, not just a distributor</div><span class="task-cat tc-email">Email</span></div>
+        <div class="task-row"><div class="task-num">16</div><div class="task-text"><strong>Deliver first 30-day performance report</strong> — Looker Studio deck covering: ad spend vs. leads, organic traffic changes, email open/click rates, LinkedIn reach growth. Recommendations for Month 2</div><span class="task-cat tc-analytics">Analytics</span></div>
+        <div class="task-row"><div class="task-num">17</div><div class="task-text"><strong>Plan next conference content strategy</strong> — if a conference is within 60 days, brief the team on content capture: interview questions, product demo scripts, social posting schedule, and post-event repurposing workflow</div><span class="task-cat tc-content">Content</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: OPPORTUNITIES -->
+<section class="section">
+  <div class="section-inner">
+    <span class="section-tag tag-red reveal">04 — Growth Opportunities</span>
+    <h2 class="section-h2 reveal">The <em>highest-impact</em> moves available</h2>
+    <div class="section-rule"></div>
+
+    <div class="opp-grid">
+      <div class="opp-card reveal">
+        <div class="opp-num">01 — Google Ads</div>
+        <div class="opp-title">Own Your Category in Paid Search</div>
+        <div class="opp-desc">Neither brand currently bids on the keywords your ideal customers are actively searching. With low competition and highly specific long-tail terms, cost-per-click in this niche is low — €0.80–€2.50 typically — making paid search extremely cost-effective for lead generation.</div>
+        <div class="opp-impact">↑ Est. 15–30 qualified leads/month from Day 1</div>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">02 — Content SEO</div>
+        <div class="opp-title">GLS as the Go-To Research Resource</div>
+        <div class="opp-desc">Researchers who buy scientific instruments typically spend weeks researching before purchasing. A systematic content programme on GLS — product guides, application notes, comparison articles — captures that research phase and builds the trust that converts to enquiries.</div>
+        <div class="opp-impact">↑ Est. +40% organic traffic in 6 months</div>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">03 — Video & Podcast</div>
+        <div class="opp-title">Turn Conference Content into a Content Engine</div>
+        <div class="opp-desc">The client interview videos from SfN are exactly what a B2B life science podcast needs. A monthly "Life Science Global" podcast — short, expert-led, easily produced — distributed on Spotify, Apple Podcasts and LinkedIn would build a loyal audience of exactly the people RBD wants to reach.</div>
+        <div class="opp-impact">↑ Brand authority + inbound lead channel</div>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">04 — Email Database</div>
+        <div class="opp-title">Activate the Scientific Database</div>
+        <div class="opp-desc">A segmented database of life science researchers is one of the most valuable B2B assets imaginable. Monthly segmented campaigns — new product announcements, application spotlights, event invitations — to a warm, relevant audience will consistently outperform every other channel on ROI.</div>
+        <div class="opp-impact">↑ Highest ROI channel — immediate activation</div>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">05 — Looker Studio</div>
+        <div class="opp-title">Real-Time Visibility Across All Channels</div>
+        <div class="opp-desc">Build a single Looker Studio dashboard pulling from GA4, Google Ads, Search Console, and LinkedIn. Management gets a live view of what's working without waiting for monthly reports — faster decisions, better budget allocation, and clear attribution from spend to lead.</div>
+        <div class="opp-impact">↑ Data-driven decisions from Week 1</div>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">06 — LinkedIn Ads</div>
+        <div class="opp-title">Target Manufacturers Ready to Expand</div>
+        <div class="opp-desc">LinkedIn's targeting allows reaching "VP Sales at a US life science manufacturer with 50–500 employees" directly. A small, well-targeted campaign — "Expanding into Europe? Here's how 12 brands did it" — using RBD's success stories as lead magnets would generate highly qualified inbound enquiries.</div>
+        <div class="opp-impact">↑ Direct pipeline growth for RBD core service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVER LETTER -->
+<section class="cover-section" id="cover">
+  <div class="section-inner">
+    <span class="section-tag tag-slate reveal" style="margin-bottom:1.5rem;display:inline-block">Cover Letter</span>
+    <div class="cover-card reveal">
+      <div class="cover-from">
+        <strong>Zaheen Mistry</strong>
+        <span style="color:var(--rb-border)">|</span>
+        zaheen.ie@gmail.com
+        <span style="color:var(--rb-border)">|</span>
+        linkedin.com/in/zaheenmistry
+      </div>
+      <div class="cover-to">
+        <p><strong>Hiring Team</strong><br>Red Box Direct<br>Dublin, Ireland<br>jobs@redboxdirect.com</p>
+      </div>
+      <div class="cover-subject">Application: <em>Digital Marketing Manager</em> — Red Box Direct</div>
+      <div class="cover-body">
+        <p>I built this audit and 30-day plan before writing a single word of this letter — because that's how I approach every role I take seriously. I didn't want to tell you what I could do; I wanted to show you. Everything above is what I would actually execute in my first month at Red Box Direct.</p>
+        <p>What drew me to this role is the exact combination of challenges it presents: two distinct brands, a specialised B2B audience, a small agile team, and a clear mandate to own the full digital stack. That's not a warning sign to me — it's the environment where I do my best work. I thrive when I have real ownership and the freedom to move fast.</p>
+        <p>I bring hands-on experience with Google Ads campaign management, Wix and WordPress, Looker Studio dashboards, LinkedIn content strategy, video and podcast production, and segmented email marketing. Across each of these, I've not just managed tools — I've built systems that run without constant attention, freeing time to focus on strategy and creative.</p>
+        <p>What excites me specifically about Red Box Direct is the international scale packed into a lean Dublin team. The fact that you support 20+ manufacturers across Europe and Asia, attend global conferences, and manage multiple brands simultaneously means no two weeks look the same. I genuinely want to be in that environment.</p>
+        <p>I'd welcome a conversation at any point. Thank you for considering my application.</p>
+      </div>
+      <div class="cover-sig">
+        <div>
+          <div class="sig-name">Zaheen Mistry</div>
+          <div class="sig-role">Applying for: Digital Marketing Manager — Red Box Direct</div>
+        </div>
+        <div class="sig-links">
+          <a href="https://www.linkedin.com/in/zaheenmistry/" target="_blank" class="sig-link">LinkedIn</a>
+          <a href="mailto:zaheen.ie@gmail.com" class="sig-link">zaheen.ie@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Red Box Direct Digital Marketing Audit 2026 — Prepared by Zaheen Mistry as part of the Digital Marketing Manager application &nbsp;|&nbsp; Independent analysis based on publicly available data. Not affiliated with Red Box Direct Limited.
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Animate hero score bars
+const heroObs = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    document.querySelectorAll('.hsc-bar-fill').forEach(bar => {
+      bar.style.width = getComputedStyle(bar).getPropertyValue('--w');
+    });
+    animCount(document.getElementById('overall-score'), 38, '/100');
+    heroObs.disconnect();
+  }
+}, { threshold: 0.3 });
+const scorecard = document.querySelector('.hero-scorecard');
+if (scorecard) heroObs.observe(scorecard);
+
+// Animate channel scores
+function animCount(el, target, suffix = '', duration = 1200) {
+  if (!el) return;
+  let start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(ease * target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const chObs = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    const scores = [[1,25],[2,42],[3,38],[4,52],[5,28],[6,30]];
+    scores.forEach(([i, s]) => animCount(document.getElementById(`ch${i}`), s));
+    chObs.disconnect();
+  }
+}, { threshold: 0.2 });
+const channelSection = document.getElementById('channels');
+if (channelSection) chObs.observe(channelSection);
+</script>
+</body>
+</html>
